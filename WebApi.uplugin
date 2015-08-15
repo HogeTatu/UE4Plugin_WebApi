@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "WebApi",
+	"Description": "It is a plug-in to use when run some Web API.",
+	"Category": "Networking",
+	"CreatedBy": "@HogeTatu",
+	"CreatedByURL": "http://hogetatu.hatenablog.com/",
+	"DocsURL": "https://github.com/HogeTatu/UE4Plugin_WebApi",
+	"MarketplaceURL": "",
+	"SupportURL": "https://github.com/HogeTatu/UE4Plugin_WebApi",
+	"Modules": [
+		{
+			"Name": "WebApi",
+			"Type": "Developer",
+			"LoadingPhase": "Default"
+		}
+	],
+	"EnabledByDefault": false,
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"Installed": false
+}
