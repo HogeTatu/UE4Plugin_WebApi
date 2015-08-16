@@ -50,14 +50,14 @@ Project -> Networking -> WebApi
 ### SimpleGet
 
 シンプルなGET通信サンプルです。  
-[詳細](/Examples/01_SimpleGet/README.jp.md "README.jp.md")
+[詳細...](/Examples/01_SimpleGet/README.jp.md "README.jp.md")
 
 ### SimplePost
 
 シンプルなPOST通信サンプルです。  
-[詳細](/Examples/02_SimplePost/README.jp.md "README.jp.md")
+[詳細...](/Examples/02_SimplePost/README.jp.md "README.jp.md")
 
 ### JsonResponse
 
 JSONフォーマットでレスポンスを受け取った時に中身をパースするサンプルです。  
-[詳細](/Examples/03_JsonResponse/README.jp.md "README.jp.md")
+[詳細...](/Examples/03_JsonResponse/README.jp.md "README.jp.md")
