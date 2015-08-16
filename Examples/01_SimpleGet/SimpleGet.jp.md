@@ -15,7 +15,7 @@ Blueprint で WebApi クラスを継承した BP_WebApiGet クラスを作成し
 
 * ClassDefaults から 接続先 Url を任意のものに変更します。
 
-![SimpleGet_01.gif](/Examples/01_SimpleGet/SimpleGet_01.gif)
+![SimpleGet_01.jpg](/Examples/01_SimpleGet/SimpleGet_01.jpg)
 
 ### Web API 呼び出し
 
@@ -26,8 +26,8 @@ Blueprint で WebApi クラスを継承した BP_WebApiGet クラスを作成し
 * OnRequestSuccessed 内で文字列形式レスポンス（WebApiResponseBodyString）へキャストし、レスポンスを出力
 * ProcessRequest で通信リクエスト開始
 
-![SimpleGet_02.gif](/Examples/01_SimpleGet/SimpleGet_02.gif)
+![SimpleGet_02.jpg](/Examples/01_SimpleGet/SimpleGet_02.jpg)
 
 ### 結果
 
-![SimpleGet_03.gif](/Examples/01_SimpleGet/SimpleGet_03.gif)
+![SimpleGet_03.jpg](/Examples/01_SimpleGet/SimpleGet_03.jpg)
