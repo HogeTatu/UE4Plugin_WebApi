@@ -29,6 +29,20 @@ This has become a generic making, such as can be used in a variety of Web API.
 * Change response body format (ex. JSON, MessagePack, ...)
 * Writing your own parsing process for response
 
+## Getting Started
+
+After clone repository or download ZIP, and Place it in the plugin directory of the project.
+
+```
+[ProjectName]/Plugins/WebApi
+```
+
+After build in VisualStudio, and enable plugin from the configuration of the plugin.
+
+```
+Project -> Networking -> WebApi
+```
+
 ## Example movie
 
 ![ExampleMovie.gif](/Examples/ExampleMovie.gif)
