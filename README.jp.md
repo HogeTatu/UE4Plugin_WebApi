@@ -31,5 +31,5 @@ Project -> Networking -> WebApi
 
 ### SimpleGet
 
-シンプルなGET通信サンプルです。
+シンプルなGET通信サンプルです。  
 [詳細](/Examples/01_SimpleGet/SimpleGet.jp.md "SimpleGet.jp.md")
