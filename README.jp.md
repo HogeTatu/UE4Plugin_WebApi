@@ -12,7 +12,7 @@ UE4 で Web API （HTTP通信）を使用するためのプラグインです。
 
 ## フィルタ機能とは
 
-フィルタ機能はAPI単位での処理を記述するためのものです。
+フィルタ機能はAPI単位での処理を記述するためのものです。  
 これにより様々な Web API で使用できる様な汎用的な作りとなっています。
 
 ### 通信前フィルタでできること
@@ -51,3 +51,8 @@ Project -> Networking -> WebApi
 
 シンプルなGET通信サンプルです。  
 [詳細](/Examples/01_SimpleGet/README.jp.md "README.jp.md")
+
+### SimplePost
+
+シンプルなPOST通信サンプルです。  
+[詳細](/Examples/02_SimplePost/README.jp.md "README.jp.md")

@@ -13,7 +13,7 @@
 
 Blueprint で WebApi クラスを継承した BP_WebApiGet クラスを作成します。
 
-* ClassDefaults から 接続先 Url を任意のものに変更します。
+ClassDefaults から接続先の Url を任意のものに変更します。
 
 ![SimpleGet_01.jpg](/Examples/01_SimpleGet/SimpleGet_01.jpg)
 
