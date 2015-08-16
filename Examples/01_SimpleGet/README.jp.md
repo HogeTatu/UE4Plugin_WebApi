@@ -28,7 +28,7 @@ ClassDefaults から接続先の Url を任意のものに変更します。
 
 ![SimpleGet_02.jpg](/Examples/01_SimpleGet/SimpleGet_02.jpg)
 
-### 結果
+## 結果
 
 ![SimpleGet_03.jpg](/Examples/01_SimpleGet/SimpleGet_03.jpg)
 
