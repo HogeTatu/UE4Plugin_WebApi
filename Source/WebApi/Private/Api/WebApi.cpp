@@ -194,8 +194,16 @@ void UWebApi::OnRequestCompletedInternal(FHttpRequestPtr Request, FHttpResponseP
 	UWebApiResponseBodyString* ResponseBodyString = (UWebApiResponseBodyString*)NewObject<UObject>(GetTransientPackage(), UWebApiResponseBodyString::StaticClass());
 	UWebApiResponseBodyBase* ResponseBody = (UWebApiResponseBodyBase*)ResponseBodyString;
 
-	ResponseBodyString->Code = Response->GetResponseCode();
-	ResponseBodyString->SetResponse(bSuccessed ? Response->GetContentAsString() : TEXT("Request failed."));
+	if(Response.IsValid())
+	{
+		ResponseBodyString->Code = Response->GetResponseCode();
+		ResponseBodyString->SetResponse(bSuccessed ? Response->GetContentAsString() : TEXT("Request failed."));
+	}
+	else
+	{
+		ResponseBodyString->Code = 400;
+		ResponseBodyString->SetResponse(TEXT("Request failed."));
+	}
 
 	while (PostFilters.IsEmpty() == false)
 	{
