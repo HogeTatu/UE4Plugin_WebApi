@@ -10,12 +10,12 @@ It is a plugin to use the Web API (HTTP communication) for UE4.
 * Wrapping HTTP module
 * Class defined in the API unit
 * Support OnStart, OnProgress, OnSuccessed, OnFailed, OnCompleted
-* PreFilter and PostFilter defined in the API unit
+* Multiple PreFilter and PostFilter processing
 
 ## What is PreFilter and PostFilter ?
 
 PreFilter and PostFilter is processing in communication before and after.  
-This has become a generic making, such as can be used in a variety of Web API.
+This has become a generic making that can be used in a variety of Web API.
 
 ### What you can do in PreFilter
 
