@@ -3,7 +3,7 @@
 	"Version": 1,
 	"VersionName": "1.0",
 	"FriendlyName": "WebApi",
-	"Description": "It is a plug-in to use when run some Web API.",
+	"Description": "It is a plugin to use the Web API (HTTP communication)",
 	"Category": "Networking",
 	"CreatedBy": "@HogeTatu",
 	"CreatedByURL": "http://hogetatu.hatenablog.com/",
@@ -13,7 +13,7 @@
 	"Modules": [
 		{
 			"Name": "WebApi",
-			"Type": "Developer",
+			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}
 	],
