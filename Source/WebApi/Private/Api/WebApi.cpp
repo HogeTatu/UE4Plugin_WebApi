@@ -191,6 +191,9 @@ void UWebApi::GetResponseBody(UWebApiResponseBodyBase*& ResponseBody) const
 
 void UWebApi::OnRequestCompletedInternal(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bSuccessed)
 {
+	auto& Module = FHttpModule::Get();
+	auto& Manager = Module.GetHttpManager();
+
 	UWebApiResponseBodyString* ResponseBodyString = (UWebApiResponseBodyString*)NewObject<UObject>(GetTransientPackage(), UWebApiResponseBodyString::StaticClass());
 	UWebApiResponseBodyBase* ResponseBody = (UWebApiResponseBodyBase*)ResponseBodyString;
 
@@ -230,6 +233,8 @@ void UWebApi::OnRequestCompletedInternal(FHttpRequestPtr Request, FHttpResponseP
 	}
 
 	OnRequestCompleted.Broadcast();
+
+	Manager.RemoveRequest(Request.ToSharedRef());
 
 	bProcessing = false;
 }
