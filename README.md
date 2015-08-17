@@ -66,4 +66,4 @@ It is a JSON response parsing example.
 
 ## License
 
-MIT
+[MIT](/LICENSE "LICENSE")
