@@ -63,3 +63,7 @@ It is a simple POST communication example.
 
 It is a JSON response parsing example.  
 [detail...](/Examples/03_JsonResponse/README.md "README.md")
+
+## License
+
+MIT
