@@ -47,23 +47,6 @@ Project -> Networking -> WebApi
 
 [![](http://img.youtube.com/vi/M_3IbU8-NQI/0.jpg)](https://www.youtube.com/watch?v=M_3IbU8-NQI)
 
-## Feature examples
-
-### SimpleGet
-
-It is a simple GET communication example.  
-[detail...](/Examples/01_SimpleGet/README.md "README.md")
-
-### SimplePost
-
-It is a simple POST communication example.  
-[detail...](/Examples/02_SimplePost/README.md "README.md")
-
-### JsonResponse
-
-It is a JSON response parsing example.  
-[detail...](/Examples/03_JsonResponse/README.md "README.md")
-
 ## License
 
 [MIT](/LICENSE "LICENSE")
