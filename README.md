@@ -45,7 +45,7 @@ Project -> Networking -> WebApi
 
 ## Example movie
 
-![ExampleMovie.gif](/Examples/ExampleMovie.gif)
+[![](http://img.youtube.com/vi/M_3IbU8-NQI/0.jpg)](https://www.youtube.com/watch?v=M_3IbU8-NQI)
 
 ## Feature examples
 
