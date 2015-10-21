@@ -43,24 +43,7 @@ Project -> Networking -> WebApi
 
 ## サンプル動画
 
-![ExampleMovie.gif](/Examples/ExampleMovie.gif)
-
-## 機能サンプル
-
-### SimpleGet
-
-シンプルなGET通信サンプルです。  
-[詳細...](/Examples/01_SimpleGet/README.jp.md "README.jp.md")
-
-### SimplePost
-
-シンプルなPOST通信サンプルです。  
-[詳細...](/Examples/02_SimplePost/README.jp.md "README.jp.md")
-
-### JsonResponse
-
-JSONフォーマットでレスポンスを受け取った時に中身をパースするサンプルです。  
-[詳細...](/Examples/03_JsonResponse/README.jp.md "README.jp.md")
+[![](http://img.youtube.com/vi/M_3IbU8-NQI/0.jpg)](https://www.youtube.com/watch?v=M_3IbU8-NQI)
 
 ## ライセンス
 
@@ -77,5 +60,5 @@ JSONフォーマットでレスポンスを受け取った時に中身をパー�
 ## 問い合わせ
 
 バグがあった場合は [@HogeTatu](https://twitter.com/HogeTatu) までご連絡頂けると助かります。  
-ただ、忙しかったりすることもあると思うので対応時期に関しては保証できません。  
+ただ、対応時期に関しては保証できません。  
 プルリクエスト大歓迎です。  
