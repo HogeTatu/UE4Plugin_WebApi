@@ -1,7 +1,7 @@
-{
+﻿{
 	"FileVersion": 3,
-	"Version": 1,
-	"VersionName": "1.0",
+	"Version": 2,
+	"VersionName": "2.0",
 	"FriendlyName": "WebApi",
 	"Description": "It is a plugin to use the Web API (HTTP communication)",
 	"Category": "Networking",

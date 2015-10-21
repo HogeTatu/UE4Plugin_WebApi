@@ -7,11 +7,11 @@
 
 class UWebApiRequestBodyUrlParameter;
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnWebApiRequestStartDelegate);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnWebApiRequestProgressDelegate);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnWebApiRequestSuccessedDelegate);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnWebApiRequestFailedDelegate);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnWebApiRequestCompletedDelegate);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnWebApiRequestStartDelegate, class UWebApi*, Api);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnWebApiRequestProgressDelegate, class UWebApi*, Api, int32, Sent, int32, Received);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnWebApiRequestSuccessedDelegate, class UWebApi*, Api, class UWebApiResponseBodyBase*, Response);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnWebApiRequestFailedDelegate, class UWebApi*, Api, class UWebApiResponseBodyBase*, Response);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnWebApiRequestCompletedDelegate, class UWebApi*, Api, class UWebApiResponseBodyBase*, Response);
 
 UCLASS(ClassGroup=WebApi, BlueprintType, Blueprintable)
 class WEBAPI_API UWebApi : public UObject
@@ -25,20 +25,20 @@ protected:
 	TQueue<IWebApiPreFilterInterface*> PreFilters;
 	TQueue<IWebApiPostFilterInterface*> PostFilters;
 	FHttpRequestPtr ProcessingRequest;
-	UWebApiResponseBodyBase* ResultResponseBody;
 
 private:
 	// private variable
 
 	bool bProcessing;
-	int32 SentProgress;
-	int32 ReceivedProgress;
 
 public:
 	// public property
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="WebApi")
-	FString Url;
+	FString Domain;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="WebApi")
+	FString Path;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="WebApi")
 	TArray<int32> SuccessResponseCodes;
@@ -61,8 +61,8 @@ public:
 public:
 	// public function
 
-	UFUNCTION(BlueprintCallable, Category = "WebApi")
-	static UWebApi* CreateWebApi(UClass* Class);
+	UFUNCTION(BlueprintPure, Category="WebApi")
+	FString GetRequestURL() const;
 
 	UFUNCTION(BlueprintCallable, Category="WebApi")
 	void SetRequestParameter(const FString& Key, const FString& Value);
@@ -77,7 +77,7 @@ public:
 	void AddPostFilter(const TScriptInterface<IWebApiPostFilterInterface>& PostFilter);
 
 	UFUNCTION(BlueprintNativeEvent, Category="WebApi")
-	void OnStartProcessRequest();
+	void OnPreProcessRequest();
 
 	UFUNCTION(BlueprintCallable, Category="WebApi")
 	bool ProcessRequest();
@@ -87,15 +87,6 @@ public:
 
 	UFUNCTION(BlueprintPure, Category="WebApi")
 	bool IsProcessingRequest() const;
-
-	UFUNCTION(BlueprintPure, Category="WebApi")
-	int32 GetSentProgress() const;
-
-	UFUNCTION(BlueprintPure, Category="WebApi")
-	int32 GetReceivedProgress() const;
-
-	UFUNCTION(BlueprintPure, Category="WebApi")
-	void GetResponseBody(UWebApiResponseBodyBase*& ResponseBody) const;
 
 private:
 	// private function

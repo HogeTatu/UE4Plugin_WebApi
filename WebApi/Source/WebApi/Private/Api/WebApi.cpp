@@ -4,18 +4,15 @@
 
 UWebApi::UWebApi(const class FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
-	, ResultResponseBody(nullptr)
 	, bProcessing(false)
-	, SentProgress(0)
-	, ReceivedProgress(0)
 {
 	RequestBodyOrg = (UWebApiRequestBodyUrlParameter*)NewObject<UObject>(GetTransientPackage(), UWebApiRequestBodyUrlParameter::StaticClass());
 	SuccessResponseCodes.Add(200);
 }
 
-UWebApi* UWebApi::CreateWebApi(UClass* Class)
+FString UWebApi::GetRequestURL() const
 {
-	return (UWebApi*)NewObject<UObject>(GetTransientPackage(), Class);
+	return Domain + "/" + Path;
 }
 
 void UWebApi::SetRequestParameter(const FString& Key, const FString& Value)
@@ -40,7 +37,7 @@ void UWebApi::AddPostFilter(const TScriptInterface<IWebApiPostFilterInterface>& 
 	PostFilters.Enqueue(PostFilterInterface);
 }
 
-void UWebApi::OnStartProcessRequest_Implementation()
+void UWebApi::OnPreProcessRequest_Implementation()
 {
 }
 
@@ -52,7 +49,7 @@ bool UWebApi::ProcessRequest()
 		return false;
 	}
 
-	OnStartProcessRequest();
+	OnPreProcessRequest();
 
 	UWebApiRequestBodyBase* RequestBody = RequestBodyOrg;
 	while (PreFilters.IsEmpty() == false)
@@ -75,6 +72,8 @@ bool UWebApi::ProcessRequest()
 
 	auto RequestType = RequestBody->GetRequestType();
 	ProcessingRequest->SetVerb(EWebApiRequestType::ToString(RequestType));
+
+	FString Url = GetRequestURL();
 
 	if(RequestType == EWebApiRequestType::GET)
 	{
@@ -143,7 +142,7 @@ bool UWebApi::ProcessRequest()
 
 	bProcessing = true;
 
-	OnRequestStart.Broadcast();
+	OnRequestStart.Broadcast(this);
 
 	return true;
 }
@@ -162,31 +161,6 @@ void UWebApi::CancelRequest()
 bool UWebApi::IsProcessingRequest() const
 {
 	return bProcessing;
-}
-
-int32 UWebApi::GetSentProgress() const
-{
-	if(bProcessing == false)
-	{
-		return 0;
-	}
-
-	return SentProgress;
-}
-
-int32 UWebApi::GetReceivedProgress() const
-{
-	if(bProcessing == false)
-	{
-		return 0;
-	}
-
-	return ReceivedProgress;
-}
-
-void UWebApi::GetResponseBody(UWebApiResponseBodyBase*& ResponseBody) const
-{
-	ResponseBody = ResultResponseBody;
 }
 
 void UWebApi::OnRequestCompletedInternal(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bSuccessed)
@@ -221,18 +195,16 @@ void UWebApi::OnRequestCompletedInternal(FHttpRequestPtr Request, FHttpResponseP
 		}
 	}
 
-	ResultResponseBody = ResponseBody;
-
-	if(bSuccessed && SuccessResponseCodes.Find(ResultResponseBody->Code) >= 0)
+	if(bSuccessed && ResponseBody != nullptr && SuccessResponseCodes.Find(ResponseBody->Code) >= 0)
 	{
-		OnRequestSuccessed.Broadcast();
+		OnRequestSuccessed.Broadcast(this, ResponseBody);
 	}
 	else
 	{
-		OnRequestFailed.Broadcast();
+		OnRequestFailed.Broadcast(this, ResponseBody);
 	}
 
-	OnRequestCompleted.Broadcast();
+	OnRequestCompleted.Broadcast(this, ResponseBody);
 
 	Manager.RemoveRequest(Request.ToSharedRef());
 
@@ -241,8 +213,5 @@ void UWebApi::OnRequestCompletedInternal(FHttpRequestPtr Request, FHttpResponseP
 
 void UWebApi::OnRequestProgressInternal(FHttpRequestPtr Request, int32 Sent, int32 Received)
 {
-	SentProgress = Sent;
-	ReceivedProgress = Received;
-
-	OnRequestProgress.Broadcast();
+	OnRequestProgress.Broadcast(this, Sent, Received);
 }
