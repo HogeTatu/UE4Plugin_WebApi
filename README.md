@@ -50,3 +50,7 @@ Project -> Networking -> WebApi
 ## License
 
 [MIT](/LICENSE "LICENSE")
+
+## Contact
+
+[@HogeTatu](https://twitter.com/HogeTatu)
