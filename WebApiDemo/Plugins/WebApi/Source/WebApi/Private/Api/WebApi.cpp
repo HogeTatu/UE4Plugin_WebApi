@@ -4,10 +4,20 @@
 
 UWebApi::UWebApi(const class FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
+	, RequestBodyOrg(nullptr)
 	, bProcessing(false)
 {
-	RequestBodyOrg = (UWebApiRequestBodyUrlParameter*)NewObject<UObject>(GetTransientPackage(), UWebApiRequestBodyUrlParameter::StaticClass());
 	SuccessResponseCodes.Add(200);
+}
+
+void UWebApi::PostInitProperties()
+{
+	Super::PostInitProperties();
+
+	if (!HasAnyFlags(RF_ClassDefaultObject))
+	{
+		RequestBodyOrg = (UWebApiRequestBodyUrlParameter*)NewObject<UObject>(GetTransientPackage(), UWebApiRequestBodyUrlParameter::StaticClass());
+	}
 }
 
 FString UWebApi::GetRequestURL() const

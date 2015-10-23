@@ -18,10 +18,14 @@ class WEBAPI_API UWebApi : public UObject
 {
 	GENERATED_UCLASS_BODY()
 
+	virtual void PostInitProperties() override;
+
 protected:
 	// protected variable
 
+	UPROPERTY(Transient)
 	UWebApiRequestBodyUrlParameter* RequestBodyOrg;
+
 	TQueue<IWebApiPreFilterInterface*> PreFilters;
 	TQueue<IWebApiPostFilterInterface*> PostFilters;
 	FHttpRequestPtr ProcessingRequest;
