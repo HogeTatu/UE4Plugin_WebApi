@@ -15,7 +15,7 @@ void UWebApiRequestBodyUrlParameter::Copy(const UWebApiRequestBodyBase* Source)
 {
 	UWebApiRequestBodyBase::Copy(Source);
 
-	auto CastSource = dynamic_cast<const UWebApiRequestBodyUrlParameter*>(Source);
+	auto CastSource = Cast<const UWebApiRequestBodyUrlParameter>(Source);
 	if(CastSource == nullptr) return;
 
 	Parameters.Empty();

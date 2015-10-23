@@ -8,7 +8,7 @@ UWebApiRequestBodyBase::UWebApiRequestBodyBase(const class FObjectInitializer& O
 
 UWebApiRequestBodyBase* UWebApiRequestBodyBase::CreateRequestBody(UClass* Class)
 {
-	return (UWebApiRequestBodyBase*)NewObject<UObject>(GetTransientPackage(), Class);
+	return NewObject<UWebApiRequestBodyBase>(GetTransientPackage(), Class);
 }
 
 void UWebApiRequestBodyBase::Copy(const UWebApiRequestBodyBase* Source)

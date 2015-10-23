@@ -7,3 +7,5 @@ Saved/
 *.sdf
 *.sln
 *.suo
+*.dll
+*.pdb

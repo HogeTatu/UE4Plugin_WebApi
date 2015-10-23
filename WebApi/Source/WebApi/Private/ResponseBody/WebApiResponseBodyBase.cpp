@@ -9,7 +9,7 @@ UWebApiResponseBodyBase::UWebApiResponseBodyBase(const class FObjectInitializer&
 
 UWebApiResponseBodyBase* UWebApiResponseBodyBase::CreateResponseBody(UClass* Class)
 {
-	return (UWebApiResponseBodyBase*)NewObject<UObject>(GetTransientPackage(), Class);
+	return NewObject<UWebApiResponseBodyBase>(GetTransientPackage(), Class);
 }
 
 void UWebApiResponseBodyBase::Copy(const UWebApiResponseBodyBase* Source)

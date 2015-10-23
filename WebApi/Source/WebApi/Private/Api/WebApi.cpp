@@ -16,7 +16,7 @@ void UWebApi::PostInitProperties()
 
 	if (!HasAnyFlags(RF_ClassDefaultObject))
 	{
-		RequestBodyOrg = (UWebApiRequestBodyUrlParameter*)NewObject<UObject>(GetTransientPackage(), UWebApiRequestBodyUrlParameter::StaticClass());
+		RequestBodyOrg = NewObject<UWebApiRequestBodyUrlParameter>(GetTransientPackage(), UWebApiRequestBodyUrlParameter::StaticClass());
 	}
 }
 
@@ -178,7 +178,7 @@ void UWebApi::OnRequestCompletedInternal(FHttpRequestPtr Request, FHttpResponseP
 	auto& Module = FHttpModule::Get();
 	auto& Manager = Module.GetHttpManager();
 
-	UWebApiResponseBodyString* ResponseBodyString = (UWebApiResponseBodyString*)NewObject<UObject>(GetTransientPackage(), UWebApiResponseBodyString::StaticClass());
+	UWebApiResponseBodyString* ResponseBodyString = NewObject<UWebApiResponseBodyString>(GetTransientPackage(), UWebApiResponseBodyString::StaticClass());
 	UWebApiResponseBodyBase* ResponseBody = (UWebApiResponseBodyBase*)ResponseBodyString;
 
 	if(Response.IsValid())
