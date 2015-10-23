@@ -12,7 +12,7 @@ UJsonAccessor::UJsonAccessor(const class FObjectInitializer& ObjectInitializer)
 
 UJsonAccessor* UJsonAccessor::Create(const FString& FieldName, const TSharedPtr<FJsonObject>& JsonObject)
 {
-	auto Instance = (UJsonAccessor*)NewObject<UObject>(GetTransientPackage(), UJsonAccessor::StaticClass());
+	auto Instance = NewObject<UJsonAccessor>(GetTransientPackage(), UJsonAccessor::StaticClass());
 	Instance->FieldName = FieldName;
 	Instance->JsonObject = JsonObject;
 	return Instance;
