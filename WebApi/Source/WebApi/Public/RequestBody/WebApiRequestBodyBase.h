@@ -48,8 +48,8 @@ protected:
 public:
 	// public function
 
-	UFUNCTION(BlueprintCallable, Category = "WebApi")
-	static UWebApiRequestBodyBase* CreateRequestBody(UClass* Class);
+	UFUNCTION(BlueprintCallable, BlueprintCosmetic, meta=(DisplayName="Create WebApi Request Body", BlueprintInternalUseOnly="true"), Category="Network|WebApi")
+	static UWebApiRequestBodyBase* Create(TSubclassOf<class UWebApiRequestBodyBase> ClassType, const UWebApiRequestBodyBase* Source = nullptr);
 
 	virtual EWebApiRequestType::Type GetRequestType() const { return EWebApiRequestType::GET; };
 	virtual EWebApiRequestParameterType::Type GetRequestParameterType() const  { return EWebApiRequestParameterType::STRING; };
@@ -57,13 +57,13 @@ public:
 	virtual bool GetRequestBodyAsString(FString& Body) const { return false; };
 	virtual bool GetRequestBodyAsBytes(TArray<uint8>& Body) const { return false; };
 
-	UFUNCTION(BlueprintCallable, Category="WebApi", meta=(DisplayName = "CopyRequestBody"))
+	UFUNCTION(BlueprintCallable, Category="Network|WebApi", meta=(DisplayName = "CopyRequestBody"))
 	virtual void Copy(const UWebApiRequestBodyBase* Source);
 
-	UFUNCTION(BlueprintCallable, Category="WebApi")
+	UFUNCTION(BlueprintCallable, Category="Network|WebApi")
 	void SetHeader(const FString& Key, const FString& Value);
 
-	UFUNCTION(BlueprintPure, Category="WebApi")
+	UFUNCTION(BlueprintPure, Category="Network|WebApi")
 	const FString& GetHeader(const FString& Key) const;
 
 	const TMap<FString, FString>& GetHeaders() const;

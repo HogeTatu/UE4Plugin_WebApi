@@ -31,14 +31,14 @@ public:
 
 	virtual void Copy(const UWebApiRequestBodyBase* Source) override;
 
-	UFUNCTION(BlueprintCallable, Category="WebApi")
+	UFUNCTION(BlueprintCallable, Category="Network|WebApi")
 	void SetParameter(const FString& Key, const FString& Value);
 
-	UFUNCTION(BlueprintPure, Category="WebApi")
+	UFUNCTION(BlueprintPure, Category="Network|WebApi")
 	const FString& GetParameter(const FString& Key) const;
 
 	const TMap<FString, FString>& GetParameters() const;
 
-	UFUNCTION(BlueprintPure, Category="WebApi")
+	UFUNCTION(BlueprintPure, Category="Network|WebApi")
 	int32 GetParameterCount() const;
 };

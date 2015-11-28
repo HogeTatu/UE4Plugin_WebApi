@@ -10,15 +10,15 @@ class WEBAPI_API UWebApiResponseBodyBase : public UObject
 public:
 	// public property
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="WebApi")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Network|WebApi")
 	int32 Code;
 
 public:
 	// public function
 
-	UFUNCTION(BlueprintCallable, Category = "WebApi")
-	static UWebApiResponseBodyBase* CreateResponseBody(UClass* Class);
+	UFUNCTION(BlueprintCallable, BlueprintCosmetic, meta=(DisplayName="Create WebApi Response Body", BlueprintInternalUseOnly="true"), Category="Network|WebApi")
+	static UWebApiResponseBodyBase* Create(TSubclassOf<class UWebApiResponseBodyBase> ClassType, const UWebApiResponseBodyBase* Source = nullptr);
 
-	UFUNCTION(BlueprintCallable, Category="WebApi", meta=(DisplayName = "CopyResponseBody"))
+	UFUNCTION(BlueprintCallable, Category="Network|WebApi", meta=(DisplayName = "CopyResponseBody"))
 	virtual void Copy(const UWebApiResponseBodyBase* Source);
 };

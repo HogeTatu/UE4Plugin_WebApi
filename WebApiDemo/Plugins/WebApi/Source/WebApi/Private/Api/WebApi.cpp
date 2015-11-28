@@ -20,6 +20,11 @@ void UWebApi::PostInitProperties()
 	}
 }
 
+UWebApi* UWebApi::Create(TSubclassOf<class UWebApi> ClassType)
+{
+	return NewObject<UWebApi>(GetTransientPackage(), ClassType);
+}
+
 FString UWebApi::GetRequestURL() const
 {
 	return Domain + "/" + Path;

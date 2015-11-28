@@ -1,5 +1,6 @@
 ﻿#pragma once
 
+#include "Http.h"
 #include "WebApiRequestBodyUrlParameter.h"
 #include "WebApiPreFilterInterface.h"
 #include "WebApiPostFilterInterface.h"
@@ -38,58 +39,61 @@ private:
 public:
 	// public property
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="WebApi")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Network|WebApi")
 	FString Domain;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="WebApi")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Network|WebApi")
 	FString Path;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="WebApi")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Network|WebApi")
 	TArray<int32> SuccessResponseCodes;
 
-	UPROPERTY(BlueprintAssignable, Category="WebApi")
+	UPROPERTY(BlueprintAssignable, Category="Network|WebApi")
 	FOnWebApiRequestStartDelegate OnRequestStart;
 
-	UPROPERTY(BlueprintAssignable, Category="WebApi")
+	UPROPERTY(BlueprintAssignable, Category="Network|WebApi")
 	FOnWebApiRequestProgressDelegate OnRequestProgress;
 
-	UPROPERTY(BlueprintAssignable, Category="WebApi")
+	UPROPERTY(BlueprintAssignable, Category="Network|WebApi")
 	FOnWebApiRequestSuccessedDelegate OnRequestSuccessed;
 
-	UPROPERTY(BlueprintAssignable, Category="WebApi")
+	UPROPERTY(BlueprintAssignable, Category="Network|WebApi")
 	FOnWebApiRequestFailedDelegate OnRequestFailed;
 
-	UPROPERTY(BlueprintAssignable, Category="WebApi")
+	UPROPERTY(BlueprintAssignable, Category="Network|WebApi")
 	FOnWebApiRequestCompletedDelegate OnRequestCompleted;
 
 public:
 	// public function
 
-	UFUNCTION(BlueprintPure, Category="WebApi")
+	UFUNCTION(BlueprintCallable, BlueprintCosmetic, meta=(DisplayName="Create WebApi", BlueprintInternalUseOnly="true"), Category="Network|WebApi")
+	static UWebApi* Create(TSubclassOf<class UWebApi> ClassType);
+
+	UFUNCTION(BlueprintPure, Category="Network|WebApi")
 	FString GetRequestURL() const;
 
-	UFUNCTION(BlueprintCallable, Category="WebApi")
+	UFUNCTION(BlueprintCallable, Category="Network|WebApi")
 	void SetRequestParameter(const FString& Key, const FString& Value);
 
-	UFUNCTION(BlueprintCallable, Category="WebApi")
+	UFUNCTION(BlueprintCallable, Category="Network|WebApi")
 	const FString& GetRequestParameter(const FString& Key) const;
 
-	UFUNCTION(BlueprintCallable, Category="WebApi")
+	UFUNCTION(BlueprintCallable, Category="Network|WebApi")
 	void AddPreFilter(const TScriptInterface<IWebApiPreFilterInterface>& PreFilter);
 
-	UFUNCTION(BlueprintCallable, Category="WebApi")
+	UFUNCTION(BlueprintCallable, Category="Network|WebApi")
 	void AddPostFilter(const TScriptInterface<IWebApiPostFilterInterface>& PostFilter);
 
-	UFUNCTION(BlueprintNativeEvent, Category="WebApi")
+	UFUNCTION(BlueprintNativeEvent, Category="Network|WebApi")
 	void OnPreProcessRequest();
 
-	UFUNCTION(BlueprintCallable, Category="WebApi")
+	UFUNCTION(BlueprintCallable, Category="Network|WebApi")
 	bool ProcessRequest();
 
-	UFUNCTION(BlueprintCallable, Category="WebApi")
+	UFUNCTION(BlueprintCallable, Category="Network|WebApi")
 	void CancelRequest();
 
-	UFUNCTION(BlueprintPure, Category="WebApi")
+	UFUNCTION(BlueprintPure, Category="Network|WebApi")
 	bool IsProcessingRequest() const;
 
 private:

@@ -14,6 +14,6 @@ class WEBAPI_API IWebApiPostFilterInterface
 {
 	GENERATED_IINTERFACE_BODY()
 
-	UFUNCTION(BlueprintNativeEvent, Category="WebApi")
+	UFUNCTION(BlueprintNativeEvent, Category="Network|WebApi")
 	UWebApiResponseBodyBase* ExecuteWebApiPostFilter(UWebApiResponseBodyBase* ResponseBody);
 };

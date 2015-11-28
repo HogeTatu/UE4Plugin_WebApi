@@ -18,9 +18,9 @@ public:
 
 	virtual void Copy(const UWebApiResponseBodyBase* Source) override;
 
-	UFUNCTION(BlueprintCallable, Category="WebApi")
+	UFUNCTION(BlueprintCallable, Category="Network|WebApi")
 	virtual void SetResponse(const FString& Response);
 
-	UFUNCTION(BlueprintPure, Category="WebApi")
+	UFUNCTION(BlueprintPure, Category="Network|WebApi")
 	virtual const FString& GetResponse() const;
 };

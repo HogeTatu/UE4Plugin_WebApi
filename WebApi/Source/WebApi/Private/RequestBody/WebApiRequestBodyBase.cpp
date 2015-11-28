@@ -6,9 +6,16 @@ UWebApiRequestBodyBase::UWebApiRequestBodyBase(const class FObjectInitializer& O
 {
 }
 
-UWebApiRequestBodyBase* UWebApiRequestBodyBase::CreateRequestBody(UClass* Class)
+UWebApiRequestBodyBase* UWebApiRequestBodyBase::Create(TSubclassOf<class UWebApiRequestBodyBase> ClassType, const UWebApiRequestBodyBase* Source)
 {
-	return NewObject<UWebApiRequestBodyBase>(GetTransientPackage(), Class);
+	auto Instance = NewObject<UWebApiRequestBodyBase>(GetTransientPackage(), ClassType);
+
+	if (Source != nullptr)
+	{
+		Instance->Copy(Source);
+	}
+
+	return Instance;
 }
 
 void UWebApiRequestBodyBase::Copy(const UWebApiRequestBodyBase* Source)

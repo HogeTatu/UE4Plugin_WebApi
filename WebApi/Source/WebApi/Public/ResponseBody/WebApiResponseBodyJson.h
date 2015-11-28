@@ -20,6 +20,6 @@ public:
 
 	virtual void SetResponse(const FString& Response) override;
 
-	UFUNCTION(BlueprintCallable, Category="WebApi")
+	UFUNCTION(BlueprintCallable, Category="Network|WebApi")
 	void GetRootJsonAccessor(UJsonAccessor*& RootJsonAccessor) const;
 };

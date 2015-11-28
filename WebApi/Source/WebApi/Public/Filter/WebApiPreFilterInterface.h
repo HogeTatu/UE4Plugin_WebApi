@@ -14,6 +14,6 @@ class WEBAPI_API IWebApiPreFilterInterface
 {
 	GENERATED_IINTERFACE_BODY()
 
-	UFUNCTION(BlueprintNativeEvent, Category="WebApi")
+	UFUNCTION(BlueprintNativeEvent, Category="Network|WebApi")
 	UWebApiRequestBodyBase* ExecuteWebApiPreFilter(UWebApiRequestBodyBase* RequestBody);
 };
