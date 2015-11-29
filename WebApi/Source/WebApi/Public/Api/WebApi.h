@@ -27,8 +27,8 @@ protected:
 	UPROPERTY(Transient)
 	UWebApiRequestBodyUrlParameter* RequestBodyOrg;
 
-	TQueue<IWebApiPreFilterInterface*> PreFilters;
-	TQueue<IWebApiPostFilterInterface*> PostFilters;
+	TQueue<UObject*> PreFilters;
+	TQueue<UObject*> PostFilters;
 	FHttpRequestPtr ProcessingRequest;
 
 private:

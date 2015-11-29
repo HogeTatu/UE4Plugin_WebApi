@@ -42,14 +42,12 @@ const FString& UWebApi::GetRequestParameter(const FString& Key) const
 
 void UWebApi::AddPreFilter(const TScriptInterface<IWebApiPreFilterInterface>& PreFilter)
 {
-	auto PreFilterInterface = (IWebApiPreFilterInterface*)PreFilter.GetInterface();
-	PreFilters.Enqueue(PreFilterInterface);
+	PreFilters.Enqueue(PreFilter.GetObject());
 }
 
 void UWebApi::AddPostFilter(const TScriptInterface<IWebApiPostFilterInterface>& PostFilter)
 {
-	auto PostFilterInterface = (IWebApiPostFilterInterface*)PostFilter.GetInterface();
-	PostFilters.Enqueue(PostFilterInterface);
+	PostFilters.Enqueue(PostFilter.GetObject());
 }
 
 void UWebApi::OnPreProcessRequest_Implementation()
@@ -69,10 +67,10 @@ bool UWebApi::ProcessRequest()
 	UWebApiRequestBodyBase* RequestBody = RequestBodyOrg;
 	while (PreFilters.IsEmpty() == false)
 	{
-		IWebApiPreFilterInterface* PreFilter = nullptr;
+		UObject* PreFilter = nullptr;
 		if(PreFilters.Dequeue(PreFilter))
 		{
-			RequestBody = PreFilter->Execute_ExecuteWebApiPreFilter(this, RequestBody);
+			RequestBody = IWebApiPreFilterInterface::Execute_ExecuteWebApiPreFilter(PreFilter, RequestBody);
 			if( RequestBody == nullptr )
 			{
 				UE_LOG(LogTemp, Error, TEXT("RequestBody is null."));
@@ -199,10 +197,10 @@ void UWebApi::OnRequestCompletedInternal(FHttpRequestPtr Request, FHttpResponseP
 
 	while (PostFilters.IsEmpty() == false)
 	{
-		IWebApiPostFilterInterface* PostFilter = nullptr;
+		UObject* PostFilter = nullptr;
 		if(PostFilters.Dequeue(PostFilter))
 		{
-			ResponseBody = PostFilter->Execute_ExecuteWebApiPostFilter(this, ResponseBody);
+			ResponseBody = IWebApiPostFilterInterface::Execute_ExecuteWebApiPostFilter(PostFilter, ResponseBody);
 			if( ResponseBody == nullptr )
 			{
 				UE_LOG(LogTemp, Error, TEXT("ResponseBody is null."));
