@@ -31,7 +31,7 @@ This has become a generic making that can be used in a variety of Web API.
 
 ## Getting Started
 
-After clone repository or download ZIP, and Place it in the plugin directory of the project.
+After clone repository or download ZIP, and Place the WebApi directory to the plugin directory of the project.
 
 ```
 [ProjectName]/Plugins/WebApi
@@ -42,6 +42,11 @@ After build in VisualStudio, and enable plugin from the configuration of the plu
 ```
 Project -> Networking -> WebApi
 ```
+
+## Example project
+
+WebApiDemo is a example project.  
+Start WebApiDemo.uproject, please check the example operations and implementation.  
 
 ## Example movie
 
