@@ -41,6 +41,11 @@ VisualStudioでビルド後、プラグインのコンフィギュレーショ�
 Project -> Networking -> WebApi
 ```
 
+## サンプルプロジェクト
+
+WebApiDemoがサンプルプロジェクトです。  
+WebApiDemo.uprojectを起動し、動作と実装例を確認してください。  
+
 ## サンプル動画
 
 [![](http://img.youtube.com/vi/M_3IbU8-NQI/0.jpg)](https://www.youtube.com/watch?v=M_3IbU8-NQI)
