@@ -141,3 +141,26 @@ bool UJsonAccessor::TryGetObjectField(const FString& FieldName, UJsonAccessor*& 
 	Out = Create(FieldName, *OutObject);
 	return true;
 }
+
+bool UJsonAccessor::TryGetObjectArrayField(const FString& FieldName, TArray<UJsonAccessor*>& Out) const
+{
+	const TArray<TSharedPtr<FJsonValue>>* OutArray;
+	if(JsonObject->TryGetArrayField(FieldName, OutArray) == false)
+	{
+		return false;
+	}
+
+	for (const auto& JsonValue : *OutArray)
+	{
+		const TSharedPtr<FJsonObject>* Object;
+		if (JsonValue->TryGetObject(Object))
+		{
+			Out.Add(Create(FieldName, *Object));
+		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("%s array's item is not object."), *FieldName);
+		}
+	}
+	return true;
+}
