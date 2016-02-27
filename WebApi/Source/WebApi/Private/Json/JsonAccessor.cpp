@@ -164,3 +164,18 @@ bool UJsonAccessor::TryGetObjectArrayField(const FString& FieldName, TArray<UJso
 	}
 	return true;
 }
+
+bool UJsonAccessor::TryGetUnixTimeField(const FString& FieldName, FDateTime& Out) const
+{
+	check(JsonObject.IsValid());
+	int64 UnixTime;
+
+	TSharedPtr<FJsonValue> Field = JsonObject->TryGetField(FieldName);
+	if(!Field.IsValid() || !Field->TryGetNumber(UnixTime))
+	{
+		return false;
+	}
+
+	Out = FDateTime::FromUnixTimestamp(UnixTime);
+	return true;
+}
