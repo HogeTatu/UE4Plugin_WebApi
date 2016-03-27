@@ -188,6 +188,9 @@ void UWebApi::OnRequestCompletedInternal(FHttpRequestPtr Request, FHttpResponseP
 	{
 		ResponseBodyString->Code = Response->GetResponseCode();
 		ResponseBodyString->SetResponse(bSuccessed ? Response->GetContentAsString() : TEXT("Request failed."));
+
+		UE_LOG(LogTemp, Log, TEXT("Code : %d"), ResponseBodyString->Code);
+		UE_LOG(LogTemp, Log, TEXT("Response : %s"), *ResponseBodyString->GetResponse());
 	}
 	else
 	{

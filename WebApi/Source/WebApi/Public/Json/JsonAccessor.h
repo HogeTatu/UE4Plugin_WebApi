@@ -56,12 +56,4 @@ public:
 
 	UFUNCTION(BlueprintPure, Category="Json")
 	bool TryGetObjectField(const FString& FieldName, UJsonAccessor*& Out) const;
-
-	UFUNCTION(BlueprintPure, Category="Json")
-	bool TryGetObjectArrayField(const FString& FieldName, TArray<UJsonAccessor*>& Out) const;
-
-	UFUNCTION(BlueprintPure, Category = "Json")
-	bool TryGetUnixTimeField(const FString& FieldName, FDateTime& Out) const;
-
-
 };

@@ -1,12 +1,12 @@
 ﻿// Some copyright should be here...
 
 using UnrealBuildTool;
+using System.IO;
 
 public class WebApi : ModuleRules
 {
 	public WebApi(TargetInfo Target)
 	{
-
 		PublicIncludePaths.AddRange(
 			new string[] {
 				"WebApi/Public",
@@ -17,7 +17,6 @@ public class WebApi : ModuleRules
 			}
 		);
 
-
 		PrivateIncludePaths.AddRange(
 			new string[] {
 				"WebApi/Private",
@@ -25,9 +24,9 @@ public class WebApi : ModuleRules
 				"WebApi/Private/Filter",
 				"WebApi/Private/RequestBody",
 				"WebApi/Private/ResponseBody",
+				"WebApi/Private/ThirdParty/liboauthcpp",
 			}
 		);
-
 
 		PublicDependencyModuleNames.AddRange(
 			new string[]
@@ -40,7 +39,6 @@ public class WebApi : ModuleRules
 			}
 		);
 
-
 		PrivateDependencyModuleNames.AddRange(
 			new string[]
 			{
@@ -48,7 +46,6 @@ public class WebApi : ModuleRules
 				"SlateCore",
 			}
 		);
-
 
 		DynamicallyLoadedModuleNames.AddRange(
 			new string[]

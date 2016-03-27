@@ -29,5 +29,5 @@ public:
 private:
 	// private function
 
-	virtual void SetDefaultHeaders();
+	void SetDefaultHeaders();
 };

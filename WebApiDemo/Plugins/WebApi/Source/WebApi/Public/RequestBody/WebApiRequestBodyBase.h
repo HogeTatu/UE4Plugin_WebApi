@@ -66,5 +66,5 @@ public:
 	UFUNCTION(BlueprintPure, Category="Network|WebApi")
 	const FString& GetHeader(const FString& Key) const;
 
-	const TMap<FString, FString>& GetHeaders() const;
+	virtual const TMap<FString, FString>& GetHeaders() const;
 };

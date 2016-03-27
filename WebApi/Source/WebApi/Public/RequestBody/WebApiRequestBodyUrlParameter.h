@@ -41,4 +41,9 @@ public:
 
 	UFUNCTION(BlueprintPure, Category="Network|WebApi")
 	int32 GetParameterCount() const;
+
+protected:
+	// protected function
+
+	bool GetRequestBodyAsStringInternal(FString& Body, const FString& Delim) const;
 };
