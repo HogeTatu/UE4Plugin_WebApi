@@ -11,6 +11,7 @@ It is a plugin to use the Web API (HTTP communication) for UE4.
 * Class defined in the API unit
 * Support OnStart, OnProgress, OnSuccessed, OnFailed, OnCompleted
 * Multiple PreFilter and PostFilter processing
+* Support OAuth
 
 ## What is PreFilter and PostFilter ?
 
@@ -21,6 +22,7 @@ This has become a generic making that can be used in a variety of Web API.
 
 * Change communication method (GET, POST, PUT)
 * Add or Remove request parameter
+* Add or Remove request header (ex. OAuth, ...)
 * Change request body format (ex. JSON, MessagePack, ...)
 
 ### What you can do in PostFilter
@@ -50,7 +52,11 @@ Start WebApiDemo.uproject, please check the example operations and implementatio
 
 ## Example movie
 
-[![](http://img.youtube.com/vi/M_3IbU8-NQI/0.jpg)](https://www.youtube.com/watch?v=M_3IbU8-NQI)
+Feature Example
+[![](http://img.youtube.com/vi/M_3IbU8-NQI/0.jpg)](https://www.youtube.com/watch?v=M_3IbU8-NQI)  
+  
+Twitter Example
+[![](http://img.youtube.com/vi/Q-mZpALSDRQ/0.jpg)](https://www.youtube.com/watch?v=Q-mZpALSDRQ)  
 
 ## License
 
