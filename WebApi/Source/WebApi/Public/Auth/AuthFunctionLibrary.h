@@ -10,7 +10,7 @@ class UAuthFunctionLibrary : public UBlueprintFunctionLibrary
 
 public:
 	UFUNCTION(BlueprintPure, Category="Network|WebApi|Auth")
-	static FString GetAuthorizeUrl(const FString& RequestToken);
+	static FString GetTwitterAuthorizeUrl(const FString& RequestToken);
 
 	UFUNCTION(BlueprintPure, Category="Network|WebApi|Auth")
 	static FString Base64Encode(const TArray<uint8>& Source);

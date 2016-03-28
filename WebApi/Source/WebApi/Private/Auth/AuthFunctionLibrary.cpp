@@ -8,7 +8,7 @@ UAuthFunctionLibrary::UAuthFunctionLibrary(const class FObjectInitializer& Objec
 {
 }
 
-FString UAuthFunctionLibrary::GetAuthorizeUrl(const FString& RequestToken)
+FString UAuthFunctionLibrary::GetTwitterAuthorizeUrl(const FString& RequestToken)
 {
 	return FString("https://api.twitter.com/oauth/authorize?oauth_token=") + RequestToken;
 }
