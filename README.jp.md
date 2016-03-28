@@ -9,6 +9,7 @@ UE4 で Web API （HTTP通信）を使用するためのプラグインです。
 * API単位でクラス定義
 * 通信前、進捗、成功時、失敗時、完了時イベントの追加
 * 通信前、通信後に実行する処理をAPIクラスに複数追加できるフィルタ機能
+* OAuth認証サポート
 
 ## フィルタ機能とは
 
@@ -19,6 +20,7 @@ UE4 で Web API （HTTP通信）を使用するためのプラグインです。
 
 * 通信タイプ（GET、POST、PUT）を変更
 * リクエストパラメータの追加/削除
+* リクエストヘッダーの追加/削除（OAuth認証用のヘッダー追加等）
 * リクエストパラメータのフォーマット（JSON、MessagePack等）を変更
 
 ### 通信後フィルタでできること
@@ -48,7 +50,13 @@ WebApiDemo.uprojectを起動し、動作と実装例を確認してください�
 
 ## サンプル動画
 
+### 機能サンプル
+
 [![](http://img.youtube.com/vi/M_3IbU8-NQI/0.jpg)](https://www.youtube.com/watch?v=M_3IbU8-NQI)
+
+### Twitter連携サンプル
+
+[![](http://img.youtube.com/vi/Q-mZpALSDRQ/0.jpg)](https://www.youtube.com/watch?v=Q-mZpALSDRQ)
 
 ## ライセンス
 
