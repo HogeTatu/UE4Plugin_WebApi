@@ -2,8 +2,6 @@
 #include "urlencode.h"
 #include "WebApiRequestBodyUrlParameter.h"
 
-#define LOG_CATEGORY LogTemp
-
 static FString Equal = TEXT("=");
 static FString DefaultDelim = TEXT("&");
 
@@ -33,7 +31,7 @@ bool UWebApiRequestBodyUrlParameter::GetRequestBodyAsString(FString& Body) const
 
 bool UWebApiRequestBodyUrlParameter::GetRequestBodyAsBytes(TArray<uint8>& Body) const
 {
-	UE_LOG(LOG_CATEGORY, Warning, TEXT("UWebApiRequestBodyUrlParameter::GetRequestBodyAsBytes is not supported."));
+	UE_LOG(LogTemp, Warning, TEXT("UWebApiRequestBodyUrlParameter::GetRequestBodyAsBytes is not supported."));
 	return false;
 }
 

@@ -2,8 +2,6 @@
 #include "Json.h"
 #include "WebApiRequestBodyPost.h"
 
-#define LOG_CATEGORY LogTemp
-
 UWebApiRequestBodyPost::UWebApiRequestBodyPost(const class FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
@@ -24,7 +22,7 @@ bool UWebApiRequestBodyPost::GetRequestBodyAsString(FString& Body) const
 
 bool UWebApiRequestBodyPost::GetRequestBodyAsBytes(TArray<uint8>& Body) const
 {
-	UE_LOG(LOG_CATEGORY, Warning, TEXT("UWebApiRequestBodyPost::GetRequestBodyAsBytes is not supported."));
+	UE_LOG(LogTemp, Warning, TEXT("UWebApiRequestBodyPost::GetRequestBodyAsBytes is not supported."));
 	return false;
 }
 

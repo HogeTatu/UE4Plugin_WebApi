@@ -16,9 +16,9 @@ void UWebApiResponseBodyString::Copy(const UWebApiResponseBodyBase* Source)
 	SetResponse(CastSource->Response);
 }
 
-void UWebApiResponseBodyString::SetResponse(const FString& Response)
+void UWebApiResponseBodyString::SetResponse(const FString& InResponse)
 {
-	this->Response = Response;
+	this->Response = InResponse;
 }
 
 const FString& UWebApiResponseBodyString::GetResponse() const

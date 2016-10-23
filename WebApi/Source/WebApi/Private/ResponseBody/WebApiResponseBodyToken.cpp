@@ -7,11 +7,11 @@ UWebApiResponseBodyToken::UWebApiResponseBodyToken(const class FObjectInitialize
 {
 }
 
-void UWebApiResponseBodyToken::SetResponse(const FString& Response)
+void UWebApiResponseBodyToken::SetResponse(const FString& InResponse)
 {
-	UWebApiResponseBodyString::SetResponse(Response);
+	UWebApiResponseBodyString::SetResponse(InResponse);
 
-	std::string Content(TCHAR_TO_UTF8(*Response));
+	std::string Content(TCHAR_TO_UTF8(*InResponse));
 	std::size_t pos = Content.find("oauth_token");
 	if (pos == std::string::npos)
 	{

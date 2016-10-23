@@ -7,6 +7,8 @@
 #include <vector>
 #include <cassert>
 
+#define _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES 1
+
 namespace OAuth {
 
 namespace Defaults

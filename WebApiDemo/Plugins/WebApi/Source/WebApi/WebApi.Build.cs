@@ -32,10 +32,8 @@ public class WebApi : ModuleRules
 			new string[]
 			{
 				"Core",
-                "HTTP",
 				"CoreUObject",
 				"Engine",
-                "Json",
 			}
 		);
 
@@ -44,6 +42,8 @@ public class WebApi : ModuleRules
 			{
 				"Slate",
 				"SlateCore",
+                "HTTP",
+                "Json",
 			}
 		);
 

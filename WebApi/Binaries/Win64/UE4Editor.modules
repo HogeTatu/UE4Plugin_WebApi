@@ -1,0 +1,9 @@
+{
+	"Changelist" : 3142249,
+	"BuildId" : "bdb358e1-3cbc-4f4d-acb8-e972c41fda4b",
+	"Modules" : 
+	{
+		"WebApi" : "UE4Editor-WebApi.dll",
+		"WebApiEditor" : "UE4Editor-WebApiEditor.dll"
+	}
+}

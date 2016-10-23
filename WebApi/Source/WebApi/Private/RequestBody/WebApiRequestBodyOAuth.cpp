@@ -3,8 +3,6 @@
 #include "urlencode.h"
 #include "WebApiRequestBodyOAuth.h"
 
-#define LOG_CATEGORY LogTemp
-
 UWebApiRequestBodyOAuth::UWebApiRequestBodyOAuth(const class FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
@@ -22,7 +20,7 @@ bool UWebApiRequestBodyOAuth::GetRequestBodyAsString(FString& Body) const
 
 bool UWebApiRequestBodyOAuth::GetRequestBodyAsBytes(TArray<uint8>& Body) const
 {
-	UE_LOG(LOG_CATEGORY, Warning, TEXT("UWebApiRequestBodyOAuth::GetRequestBodyAsBytes is not supported."));
+	UE_LOG(LogTemp, Warning, TEXT("UWebApiRequestBodyOAuth::GetRequestBodyAsBytes is not supported."));
 	return false;
 }
 

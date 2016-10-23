@@ -9,3 +9,5 @@ Saved/
 *.suo
 *.dll
 *.pdb
+*.db
+*.opendb

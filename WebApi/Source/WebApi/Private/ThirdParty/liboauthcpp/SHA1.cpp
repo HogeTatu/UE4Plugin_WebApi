@@ -33,6 +33,8 @@
 #include "SHA1.h"
 #include <cassert>
 
+#define _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES 1
+
 #ifdef SHA1_UTILITY_FUNCTIONS
 #define SHA1_MAX_FILE_BUFFER 8000
 #endif

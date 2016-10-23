@@ -79,9 +79,7 @@ bool UWebApi::ProcessRequest()
 	}
 
 	auto& Module = FHttpModule::Get();
-	auto& Manager = Module.GetHttpManager();
-
-	FHttpRequestPtr ProcessingRequest = Module.CreateRequest();
+	ProcessingRequest = Module.CreateRequest();
 
 	auto RequestType = RequestBody->GetRequestType();
 	ProcessingRequest->SetVerb(EWebApiRequestType::ToString(RequestType));
@@ -145,14 +143,6 @@ bool UWebApi::ProcessRequest()
 
 	ProcessingRequest->ProcessRequest();
 
-	Manager.AddRequest(ProcessingRequest.ToSharedRef());
-	if(Manager.IsValidRequest(ProcessingRequest.Get()) == false)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Add request failed."));
-		ProcessingRequest->CancelRequest();
-		return false;
-	}
-
 	bProcessing = true;
 
 	OnRequestStart.Broadcast(this);
@@ -178,9 +168,6 @@ bool UWebApi::IsProcessingRequest() const
 
 void UWebApi::OnRequestCompletedInternal(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bSuccessed)
 {
-	auto& Module = FHttpModule::Get();
-	auto& Manager = Module.GetHttpManager();
-
 	UWebApiResponseBodyString* ResponseBodyString = NewObject<UWebApiResponseBodyString>(GetTransientPackage(), UWebApiResponseBodyString::StaticClass());
 	UWebApiResponseBodyBase* ResponseBody = (UWebApiResponseBodyBase*)ResponseBodyString;
 
@@ -221,8 +208,6 @@ void UWebApi::OnRequestCompletedInternal(FHttpRequestPtr Request, FHttpResponseP
 	}
 
 	OnRequestCompleted.Broadcast(this, ResponseBody);
-
-	Manager.RemoveRequest(Request.ToSharedRef());
 
 	bProcessing = false;
 }
