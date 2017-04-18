@@ -15,11 +15,6 @@
 			"Name": "WebApi",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
-		},
-		{
-			"Name": "WebApiEditor",
-			"Type": "Editor",
-			"LoadingPhase": "Default"
 		}
 	],
 	"EnabledByDefault": false,
