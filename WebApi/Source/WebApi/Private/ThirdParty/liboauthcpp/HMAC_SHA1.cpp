@@ -3,7 +3,6 @@
 //*                 Comfort to RFC 2104
 //*
 //******************************************************************************
-#include "WebApiPrivatePCH.h"
 #include "HMAC_SHA1.h"
 #include <iostream>
 #include <memory>

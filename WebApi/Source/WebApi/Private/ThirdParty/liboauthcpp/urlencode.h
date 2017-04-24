@@ -1,6 +1,7 @@
 #ifndef __URLENCODE_H__
 #define __URLENCODE_H__
 
+#include "CoreMinimal.h"
 #include <iostream>
 #include <string>
 

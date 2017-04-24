@@ -1,7 +1,7 @@
 ﻿{
 	"FileVersion": 3,
-	"Version": 2,
-	"VersionName": "2.0",
+	"Version": 3,
+	"VersionName": "3.0",
 	"FriendlyName": "WebApi",
 	"Description": "It is a plugin to use the Web API (HTTP communication)",
 	"Category": "Networking",
@@ -10,15 +10,14 @@
 	"DocsURL": "https://github.com/HogeTatu/UE4Plugin_WebApi",
 	"MarketplaceURL": "",
 	"SupportURL": "https://github.com/HogeTatu/UE4Plugin_WebApi",
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"Installed": false,
 	"Modules": [
 		{
 			"Name": "WebApi",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}
-	],
-	"EnabledByDefault": false,
-	"CanContainContent": false,
-	"IsBetaVersion": false,
-	"Installed": false
+	]
 }

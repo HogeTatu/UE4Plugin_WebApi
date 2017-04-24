@@ -1,5 +1,5 @@
-#include "WebApiPrivatePCH.h"
 #include "liboauthcpp.h"
+#include "WebApiLog.h"
 #include "HMAC_SHA1.h"
 #include "base64.h"
 #include "urlencode.h"
@@ -7,7 +7,11 @@
 #include <vector>
 #include <cassert>
 
+#pragma warning (disable:4996)
+
+#ifndef _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES
 #define _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES 1
+#endif
 
 namespace OAuth {
 
@@ -87,7 +91,10 @@ std::string RequestTypeString(const Http::RequestType rt) {
 static std::pair<std::string, std::string> ParseKeyValuePair(const std::string& encoded) {
     std::size_t eq_pos = encoded.find("=");
     if (eq_pos == std::string::npos)
-        throw ParseError("Failed to find '=' in key-value pair.");
+    {
+        UE_LOG(LogWebApi, Error, TEXT("Failed to find '=' in key-value pair."));
+        return std::pair<std::string, std::string>("", "");
+    }
     return std::pair<std::string, std::string>(
         encoded.substr(0, eq_pos),
         encoded.substr(eq_pos+1)
@@ -156,13 +163,25 @@ Token Token::extract(const KeyValuePairs& response) {
 
     KeyValuePairs::const_iterator it = response.find(Defaults::TOKEN_KEY);
     if (it == response.end())
-        throw MissingKeyError("Couldn't find oauth_token in response");
-    token_key = it->second;
+    {
+        UE_LOG(LogWebApi, Error, TEXT("Couldn't find oauth_token in response"));
+        token_key = "";
+    }
+    else
+    {
+        token_key = it->second;
+    }
 
     it = response.find(Defaults::TOKENSECRET_KEY);
     if (it == response.end())
-        throw MissingKeyError("Couldn't find oauth_token_secret in response");
-    token_secret = it->second;
+    {
+        UE_LOG(LogWebApi, Error, TEXT("Couldn't find oauth_token_secret in response"));
+        token_secret = "";
+    }
+    else
+    {
+        token_secret = it->second;
+    }
 
     return Token(token_key, token_secret);
 }

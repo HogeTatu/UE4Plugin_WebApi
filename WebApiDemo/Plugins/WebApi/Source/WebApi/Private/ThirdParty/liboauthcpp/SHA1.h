@@ -32,6 +32,9 @@
 #ifndef ___SHA1_HDR___
 #define ___SHA1_HDR___
 
+#include "CoreMinimal.h"
+#include "Misc/SecureHash.h"
+
 #if !defined(SHA1_UTILITY_FUNCTIONS) && !defined(SHA1_NO_UTILITY_FUNCTIONS)
 #define SHA1_UTILITY_FUNCTIONS
 #endif

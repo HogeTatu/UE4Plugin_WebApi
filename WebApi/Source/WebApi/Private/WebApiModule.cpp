@@ -1,6 +1,8 @@
-﻿#include "WebApiPrivatePCH.h"
+﻿#include "WebApiModule.h"
 
 #define LOCTEXT_NAMESPACE "FWebApiModule"
+
+DEFINE_LOG_CATEGORY(LogWebApi);
 
 void FWebApiModule::StartupModule()
 {

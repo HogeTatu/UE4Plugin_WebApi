@@ -1,5 +1,6 @@
 ﻿#pragma once
 
+#include "CoreMinimal.h"
 #include "ModuleManager.h"
 
 class FWebApiModule : public IModuleInterface

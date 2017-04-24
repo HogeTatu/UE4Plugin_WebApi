@@ -1,6 +1,7 @@
 #ifndef __LIBOAUTHCPP_LIBOAUTHCPP_H__
 #define __LIBOAUTHCPP_LIBOAUTHCPP_H__
 
+#include "CoreMinimal.h"
 #include <string>
 #include <list>
 #include <map>

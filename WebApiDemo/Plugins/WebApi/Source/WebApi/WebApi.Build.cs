@@ -1,29 +1,20 @@
-﻿// Some copyright should be here...
-
-using UnrealBuildTool;
-using System.IO;
+﻿using UnrealBuildTool;
 
 public class WebApi : ModuleRules
 {
 	public WebApi(TargetInfo Target)
 	{
+		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
+
 		PublicIncludePaths.AddRange(
 			new string[] {
 				"WebApi/Public",
-				"WebApi/Public/Api",
-				"WebApi/Public/Filter",
-				"WebApi/Public/RequestBody",
-				"WebApi/Public/ResponseBody",
 			}
 		);
 
 		PrivateIncludePaths.AddRange(
 			new string[] {
 				"WebApi/Private",
-				"WebApi/Private/Api",
-				"WebApi/Private/Filter",
-				"WebApi/Private/RequestBody",
-				"WebApi/Private/ResponseBody",
 				"WebApi/Private/ThirdParty/liboauthcpp",
 			}
 		);
@@ -32,25 +23,28 @@ public class WebApi : ModuleRules
 			new string[]
 			{
 				"Core",
-				"CoreUObject",
-				"Engine",
 			}
 		);
 
 		PrivateDependencyModuleNames.AddRange(
 			new string[]
 			{
-				"Slate",
-				"SlateCore",
+				"CoreUObject",
+				"Engine",
                 "HTTP",
                 "Json",
 			}
 		);
 
-		DynamicallyLoadedModuleNames.AddRange(
-			new string[]
-			{
-			}
-		);
+		if (Target.Type != TargetRules.TargetType.Server)
+		{
+			PrivateDependencyModuleNames.AddRange(
+				new string[]
+				{
+					"Slate",
+					"SlateCore",
+				}
+			);
+		}
 	}
 }

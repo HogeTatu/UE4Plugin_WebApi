@@ -25,7 +25,6 @@
 
 */
 
-#include "WebApiPrivatePCH.h"
 #include "base64.h"
 #include <iostream>
 

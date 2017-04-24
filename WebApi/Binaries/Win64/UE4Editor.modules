@@ -1,10 +1,9 @@
 {
-	"Changelist" : 3195953,
-	"CompatibleChangelist" : 0,
-	"BuildId" : "24beab3c-99b6-4009-ab22-6c6cb21c244b",
+	"Changelist" : 3348071,
+	"CompatibleChangelist" : 3299760,
+	"BuildId" : "061ee2a1-1708-49db-bd34-6faec8f81f95",
 	"Modules" : 
 	{
-		"WebApi" : "UE4Editor-WebApi.dll",
-		"WebApiEditor" : "UE4Editor-WebApiEditor.dll"
+		"WebApi" : "UE4Editor-WebApi.dll"
 	}
 }
